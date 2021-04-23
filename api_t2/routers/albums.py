@@ -59,7 +59,7 @@ def create_track(request, album_id: str, track: TrackIn):
             return 409, exists[0].dict()
         track_model = Track(id = track_id, 
             album = referenced_album, 
-            self_url = f"http://[::1]:8000/api/tracks/{track_id}",
+            self_url = f"http://afternoon-citadel-29736.herokuapp.com/api/tracks/{track_id}",
             **track.dict())
         track_model.save()
         return 201, track_model.dict()

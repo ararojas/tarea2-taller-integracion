@@ -9,6 +9,7 @@ from ..models.tracks import Track
 from base64 import b64encode
 from ninja.errors import HttpError
 from django.shortcuts import get_object_or_404
+from ninja.errors import ValidationError
 
 router = Router()
 
@@ -24,9 +25,9 @@ def create_artist(request, artist: ArtistIn):
     artist_model = Artist(id = artist_id, 
     name = artist.name, 
     age = artist.age,
-    albums = f"http://[::1]:8000/api/artists/{artist_id}/albums",
-    tracks = f"http://[::1]:8000/api/artists/{artist_id}/tracks",
-    self_url = f"http://[::1]:8000/api/artists/{artist_id}")
+    albums = f"http://afternoon-citadel-29736.herokuapp.com/api/artists/{artist_id}/albums",
+    tracks = f"http://afternoon-citadel-29736.herokuapp.com/api/artists/{artist_id}/tracks",
+    self_url = f"http://afternoon-citadel-29736.herokuapp.com/api/artists/{artist_id}")
     artist_model.save()
     return 201, artist_model.dict()
 
@@ -45,8 +46,8 @@ def create_album(request, artist_id: str, album: AlbumIn):
             return 409, exists[0].dict()
         album_model = Album(id = album_id, 
             artist = referenced_artist, 
-            tracks = f"http://[::1]:8000/api/albums/{album_id}/tracks",
-            self_url = f"http://[::1]:8000/api/albums/{album_id}",
+            tracks = f"http://afternoon-citadel-29736.herokuapp.com/api/albums/{album_id}/tracks",
+            self_url = f"http://afternoon-citadel-29736.herokuapp.com/api/albums/{album_id}",
             **album.dict())
         album_model.save()
         return 201, album_model.dict()
