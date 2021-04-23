@@ -1,0 +1,10 @@
+Django>=3.0,<4.0
+psycopg2-binary>=2.8
+
+# Django Ninja
+# ------------------------------------------------------------------------------
+django-ninja==0.12.2
+pydantic==1.7.3
+djangorestframework==3.11.2
+gunicorn
+django-heroku
