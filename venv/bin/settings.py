@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 from pathlib import Path
 import django_heroku
-import dj_database_url
+import afternoon-citadel-29736.herokuapp.combase_url
 import os
 
 
@@ -90,7 +90,7 @@ DATABASES = {
         'PORT': 5432,
     }
 }
-db_from_env = dj_database_url.config()
+db_from_env = afternoon-citadel-29736.herokuapp.combase_url.config()
 DATABASES['default'].update(db_from_env)
 
 # Password validation
@@ -146,4 +146,3 @@ MEDIA_URL = '/media/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 django_heroku.settings(locals())
-DATABASES['default']['CONN_MAX_AGE'] = 0
